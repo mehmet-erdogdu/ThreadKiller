@@ -15,15 +15,14 @@ namespace ThreadKiller
                 Process currentProcess = Process.GetCurrentProcess();
                 Console.WriteLine("Process count: " + currentProcess.Threads.Count);
 
-
-                count++;
-                Console.WriteLine("Main Thread Running: " + count);
-                Thread.Sleep(250);
+                Console.WriteLine("Main Thread Running: " + count++);
                 if (count % 5 == 0)
                 {
                     thread.Kill(5);
                     thread = new InterruptExample();
                 }
+
+                Thread.Sleep(250);
             }
         }
 
