@@ -13,7 +13,7 @@ namespace ThreadKiller
             while (true)
             {
                 Process currentProcess = Process.GetCurrentProcess();
-                Console.WriteLine("process count: " + currentProcess.Threads.Count);
+                Console.WriteLine("Process count: " + currentProcess.Threads.Count);
 
 
                 count++;
@@ -61,6 +61,7 @@ namespace ThreadKiller
             {
                 job.Interrupt();
                 job.Join(timeout);
+                GC.SuppressFinalize(this);
             }
         }
 
